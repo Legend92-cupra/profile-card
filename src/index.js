@@ -16,7 +16,7 @@ function App() {
 
 function Avatar() {
   return (
-    <div className="avatar">
+    <div>
       <Profile name="Eathan Coenraad" photoName="eathan_profile.jpg" />
     </div>
   );
@@ -25,7 +25,7 @@ function Avatar() {
 function Profile(props) {
   return (
     <div>
-      <img src={props.photoName} alt={props.name} />
+      <img className="avatar" src={props.photoName} alt={props.name} />
     </div>
   );
 }
@@ -33,7 +33,7 @@ function Profile(props) {
 function Intro() {
   return (
     <div>
-      <h2>Eathan Coenraad</h2>
+      <h1>Eathan Coenraad</h1>
       <p>
         Full-stack web developer and teacher at Udemy. When not coding or
         preparing a course, I like to play boar games, to cook (and eat), or to
@@ -44,27 +44,23 @@ function Intro() {
 }
 
 function SkillList() {
-  const style = { backgroundColor: "red" };
   return (
     <div className="skill-list">
-      <span className="skill" style={style}>
-        HTML+CSS 💪
-      </span>
-      <span className="skill" style={{ backgroundColor: "blue" }}>
-        JavaScript 💪
-      </span>
-      <span className="skill" style={{ backgroundColor: "yellow" }}>
-        Web Design 💪
-      </span>
-      <span className="skill" style={{ backgroundColor: "green" }}>
-        Git and Github 💪
-      </span>
-      <span className="skill" style={{ backgroundColor: "grey" }}>
-        React 💪
-      </span>
-      <span className="skill" style={{ backgroundColor: "orange" }}>
-        C# 💪
-      </span>
+      <Skill skill="React" emoji="💪" color="blue" />
+      <Skill skill="HTML+CSS" emoji="💪" color="yellow" />
+      <Skill skill="JavaScript" emoji="💪" color="green" />
+      <Skill skill="Git and Github" emoji="👍" color="grey" />
+      <Skill skill="Web Design" emoji="💪" color="orange" />
+      <Skill skill="C#" emoji="💪" color="red" />
+    </div>
+  );
+}
+
+function Skill(props) {
+  return (
+    <div className="skill" style={{ backgroundColor: props.color }}>
+      <span>{props.skill}</span>
+      <span>{props.emoji}</span>
     </div>
   );
 }
